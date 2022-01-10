@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 10, 2022 lúc 05:31 PM
+-- Thời gian đã tạo: Th1 10, 2022 lúc 09:09 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.12
 
@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Cấu trúc bảng cho bảng `dondatphong`
 --
+CREATE DATABASE cnpm;
+USE cnpm;
 
 CREATE TABLE `dondatphong` (
   `id_dondat` int(11) NOT NULL,
@@ -38,13 +40,6 @@ CREATE TABLE `dondatphong` (
   `ngay` text NOT NULL,
   `gio` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `dondatphong`
---
-
-INSERT INTO `dondatphong` (`id_dondat`, `username`, `hoten`, `sdt`, `cmnd`, `id_phong`, `monan`, `ngay`, `gio`) VALUES
-(238, 'khachhang', 'Đinh Nhựt Minh', 345345345, 234524523, 4, '1?1?BIA TIGER/1?2?BIA HENIKEN/4?3?STRONGBOW', '10/01/2022', '11:29pm');
 
 -- --------------------------------------------------------
 
@@ -67,14 +62,6 @@ CREATE TABLE `hoadon` (
   `giovao` text NOT NULL,
   `ngayhd` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `hoadon`
---
-
-INSERT INTO `hoadon` (`id_hoadon`, `hoten`, `sdt`, `cmnd`, `thoigiansudung`, `id_phong`, `tienmonan`, `tienphong`, `tongtien`, `monan`, `ngayvao`, `giovao`, `ngayhd`) VALUES
-(2, 'Đinh Nhựt Minh', 234324, 234234, '00 Giờ 06 Phút', 2, 160, 20, 180, '3?1?BIA TIGER/3?2?BIA HENIKEN/2?3?STRONGBOW/2?4?BIA CORONA', '12/01/2022', '09:11pm', '10/03/2023'),
-(3, 'Đinh Nhựt Minh', 123123123, 123123, '00 Giờ 00 Phút', 2, 30, 0, 30, '1?1?BIA TIGER/1?2?BIA HENIKEN', '12/01/2022', '09:38pm', '10/01/2022');
 
 -- --------------------------------------------------------
 
@@ -133,9 +120,9 @@ CREATE TABLE `phong` (
 
 INSERT INTO `phong` (`id_phong`, `tenphong`, `giaphong`, `active`, `check_room`) VALUES
 (1, 'PHÒNG 1', 100, 0, 0),
-(2, 'PHÒNG VIP 1', 200, 1, 1),
-(3, 'PHÒNG VIP 2', 200, 1, 1),
-(4, 'PHÒNG VIP 3', 200, 1, 1),
+(2, 'PHÒNG VIP 1', 200, 0, 1),
+(3, 'PHÒNG VIP 2', 200, 0, 1),
+(4, 'PHÒNG VIP 3', 200, 0, 1),
 (5, 'PHÒNG 2', 100, 0, 0),
 (6, 'PHÒNG 3', 100, 0, 0),
 (7, 'PHÒNG 4', 100, 0, 0),
@@ -162,14 +149,6 @@ CREATE TABLE `phonghoatdong` (
   `gio` text NOT NULL,
   `id_hoatdong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `phonghoatdong`
---
-
-INSERT INTO `phonghoatdong` (`username`, `hoten`, `sdt`, `cmnd`, `id_phong`, `monan`, `ngay`, `gio`, `id_hoatdong`) VALUES
-('nhanvien', '123', '234234', 234234, 2, '1?3?STRONGBOW', '10/01/2022', '11:27pm', 7),
-('khachhang', '23423', '23423', 234234, 3, '1?1?BIA TIGER/1?2?BIA HENIKEN/1?3?STRONGBOW', '10/01/2022', '11:28pm', 8);
 
 -- --------------------------------------------------------
 
@@ -217,10 +196,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `fullname`, `username`, `password`, `id_role`, `cmnd`, `sdt`, `email`, `address`, `active`) VALUES
-(1, 'Đinh Nhựt Minh', 'admin', '$2y$10$BRfqi1RlHLSMHkdrNtQd4Onyx8xmUmn37Mig5INiieh3vTwGtodzG', '0', 535234, 234234234, 'mndx1t@gmail.com', '18/16 tan phong', 1),
-(47, 'Đinh Nhựt Minh', 'khachhang', '$2y$10$cTfJZN/jOMKuXLQ7jw00A.5aEtejZhfwy1StLCOaOc8VMAG/edaKG', '1', 234234, 234234, 'zedlolvn@gmail.com234234', '60 đường Hùng Vương, tiệm gỗ Ngọc Quý (0888135801)', 1),
-(54, 'asdasd', 'minhkeo', '$2y$10$MJbZbSpsuAEGYMNIvjDHaeW7HroOF2p4TEOBX6Rse53OAXvAkxXuG', '2', 423423, 4234234, 'mndx1t@gmail.com2', '18/16 tan phong', 1),
-(56, 'Đinh Nhựt Minh', 'nhanvien', '$2y$10$Cm4hrOpXdJHwCVXmMENcn.S6vZ4OF.eF39ktqgDeKY3V3.wuQjAr6', '2', 123123, 123123, '114119094@sv.tvu.edu.vn2', '60 đường Hùng Vương, tiệm gỗ Ngọc Quý (0888135801)', 1);
+(1, 'Đinh Nhựt Minh', 'admin', '$2y$10$ZzL7/JPWzCvWtM1cNa1GOOmT.qJ4A6CpkMHMrVMQkBjt3VGpA4Ox.', '0', 535234, 234234234, 'mndx1t@gmail.com', '18/16 tan phong', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -276,13 +252,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `dondatphong`
 --
 ALTER TABLE `dondatphong`
-  MODIFY `id_dondat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `id_dondat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id_hoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_hoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `monan`
@@ -300,7 +276,7 @@ ALTER TABLE `phong`
 -- AUTO_INCREMENT cho bảng `phonghoatdong`
 --
 ALTER TABLE `phonghoatdong`
-  MODIFY `id_hoatdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_hoatdong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `user`

@@ -134,7 +134,7 @@
         <div id="header-main" class="js-header header">
                     <div id="header-menu-main" class="js-header-menu header-menu">
                         <div class="menu-search js-hide-header" >
-                            <span>ĐẶT TRƯỚC MÓN ĂN</span>
+                            <span>ĐẶT MÓN ĂN</span>
                         </div>
                         <ul class="menu-itmes js-menu-itmes">
                             <li class="items-icon items-icon-hover js-items-icon" >

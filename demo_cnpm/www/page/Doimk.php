@@ -81,7 +81,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password']))
         <div class="login-logo">
             <div class="logo-company">
                 <img src="../images/bg3.png" alt="" />
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+                <h3>SINGING FOR YOUR PASSION WITH THE WORLD'S NO.1 KARAOKE</h3>
             </div>
             <div class="bg-login">
                 <img src="../images/bg1.svg" alt="" />
@@ -91,7 +91,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password']))
             <div class="form-user">
                 <span>
                     <!-- <img src="./bg3.png" alt=""> -->
-                    <h2>Members</h2>
+                    <h2>CHANGE PASSWORD</h2>
                 </span>
                 <?php
                 if(isset($_SESSION['alert_creat']))

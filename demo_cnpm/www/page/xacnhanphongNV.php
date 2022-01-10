@@ -68,7 +68,7 @@
                 $link = "?idphong=".$idphong."&checkdat=1";
                 if(mysqli_query($conn,$sql2))
                 {
-                    header("Location: ./datphong.php$link");
+                    header("Location: ./danhsachphong.php$link");
                 }
                 else
                 {
@@ -79,7 +79,7 @@
             else
             {
                 $link = "?idphong=".$idphong."&checkdat=0";
-                header("Location: ./datphong.php$link");
+                header("Location: ./danhsachphong.php$link");
             }
         }
     }

@@ -211,7 +211,8 @@
             <!--  management-user -->
             <!-- start -->
             <div class="management-user">
-            <?php 
+                <div class="user-list">
+                <?php 
                 if($alertdel)
                     echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                     <strong>Thành công!</strong>   Xóa Hóa đơn thành công!   
@@ -220,8 +221,7 @@
                     </button>
                     </div>";
     
-             ?>
-                <div class="user-list">
+                ?>
                     <div class="list-header">
                         <div class="header-title">
                             <h4>Danh sách Doanh Thu<h6>- <?php echo $total['total'] ?></h6></h4>

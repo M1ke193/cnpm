@@ -21,6 +21,7 @@ if (!isset($_SESSION['username'])) {
 
 $conn = open_database();
 $thanhtoan = isset($_GET['thanhtoan'])? $_GET['thanhtoan']:0;
+$checkdat = isset($_GET['checkdat'])? $_GET['checkdat']:3;
 if(mysqli_query($conn,"SELECT * from dondatphong"))
 {
     $count= mysqli_query($conn,"SELECT * from dondatphong");
@@ -126,6 +127,20 @@ mysqli_close($conn);
            if($thanhtoan == 1)
             echo "<div style ='width: 100%'class='alert alert-success alert-dismissible fade show' role='alert'>
             <strong>Thành công!</strong>  Thanh toán thành công!   
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            </div>";
+            if($checkdat==0)
+            echo "<div style ='width: 100%'class='alert alert-danger alert-dismissible fade show' role='alert'>
+            <strong>Thất Bại!</strong>  Đặt Phòng thành công!   
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button>
+            </div>";
+            else if($checkdat==1)
+            echo "<div style ='width: 100%'class='alert alert-success alert-dismissible fade show' role='alert'>
+            <strong>Thành công!</strong>  Đặt Phòng thành công!   
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
             </button>
